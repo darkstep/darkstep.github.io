@@ -1,25 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fix The Path Now – Lake Oswego, OR</title>
-    <meta name="description" content="Join the campaign to improve the pedestrian path from Third Street across the railroad tracks in Lake Oswego, OR. Sign our petition to make walking safer for our community." />
-    <meta name="author" content="FixThePathNow Campaign" />
-    <meta name="keywords" content="Lake Oswego, pedestrian path, Third Street, railroad crossing, community safety, petition" />
+    <meta name="description" content="Join the campaign to improve the pedestrian path from Third Street across the railroad tracks in Lake Oswego, OR. Sign our petition to make walking safer for our community.">
+    <meta name="keywords" content="Lake Oswego, pedestrian path, Third Street, railroad crossing, community safety, petition">
+    <meta name="author" content="FixThePathNow Campaign">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fix The Path Now – Lake Oswego, OR">
+    <meta property="og:description" content="Join the campaign to improve the pedestrian path from Third Street across the railroad tracks in Lake Oswego, OR. Sign our petition to make walking safer for our community.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Fix The Path Now – Lake Oswego, OR">
+    <meta property="twitter:description" content="Join the campaign to improve the pedestrian path from Third Street across the railroad tracks in Lake Oswego, OR. Sign our petition to make walking safer for our community.">
 
-    <meta property="og:title" content="Fix The Path Now – Lake Oswego, OR" />
-    <meta property="og:description" content="Join the campaign to improve the pedestrian path from Third Street across the railroad tracks in Lake Oswego, OR. Sign our petition to make walking safer for our community." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header and Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            display: block;
+            color: #2563eb;
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #dc2626;
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-primary:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Stats Cards */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card:nth-child(1) .stat-number { color: #2563eb; }
+        .stat-card:nth-child(2) .stat-number { color: #059669; }
+        .stat-card:nth-child(3) .stat-number { color: #dc2626; }
+
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .problem-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+
+        .problem-list li::before {
+            content: "⚠️";
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid #dc2626;
+        }
+
+        .highlight-box h3 {
+            color: #dc2626;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Solution Grid */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: #059669;
+        }
+
+        .solution-card h3 {
+            color: #059669;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-card h3 span {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer p {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer strong {
+            color: #1e293b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .hero {
+                padding: 2rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>
+                Fix The Path
+                <span class="highlight">Now</span>
+            </h1>
+            
+            <p>
+                Join our campaign to improve the pedestrian path from Third Street across the railroad tracks in <strong>Lake Oswego, Oregon</strong>
+            </p>
+
+            <a href="https://docs.google.com/forms" target="_blank" class="btn btn-primary">
+                📝 Sign the Petition
+            </a>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Community Members Affected</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Daily</div>
+                    <div class="stat-label">Safety Concerns</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">NOW</div>
+                    <div class="stat-label">Time for Action</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    
+
+ 
+
+  
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <strong>Fix The Path Now</strong> - A Community Safety Initiative
+            </p>
+            <p style="font-size: 0.875rem;">
+                Lake Oswego, Oregon • Together for Safer Streets
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle button clicks with analytics potential
+        document.addEventListener('DOMContentLoaded', function() {
+            const petitionButtons = document.querySelectorAll('a[href*="docs.google.com"]');
+            
+            petitionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // You can add analytics tracking here
+                    console.log('Petition button clicked');
+                });
+            });
+        });
+    </script>
+</body>
 </html>
